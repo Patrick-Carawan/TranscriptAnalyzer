@@ -1,8 +1,5 @@
 import sys
 import json
-import re
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
 
@@ -38,7 +35,7 @@ def create_intents(file_contents):
     except FileNotFoundError:
         print("No json file currently exists, creating one now.")
         json_file = open('./json.txt', 'w+')
-
+    # TODO Clean this mess up
     json_file_contents = json_file.read()
     json_file.close()
     new_json_file = open('./json.txt', 'w+')
@@ -57,9 +54,7 @@ def create_intents(file_contents):
     sys.exit()
 
 
-
 class App(QWidget):
-
     def __init__(self):
         super().__init__()
         self.file_dialog()
@@ -77,6 +72,7 @@ def main():
     app = QApplication(sys.argv)
     fd = App()
     sys.exit(app.exec_())
+
 
 if __name__ == "__main__":
     main()
