@@ -1,1 +1,0 @@
-[{"line": "Hello.", "previous line": "NO PREVIOUS LINE"}, {"line": "Hi there", "previous line": "Hello."}, {"line": "Hello.", "previous line": "NO PREVIOUS LINE"}, {"line": "Hi there", "previous line": "Hello."}]

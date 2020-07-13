@@ -32,17 +32,19 @@ def create_intents(file_contents):
     # Depending on whether the JSON file exists we will either want to read it or create a new one
     try:
         json_file = open('./json.txt', 'r+')
+        json_file_contents = json_file.read()
+        json_file.close()
     except FileNotFoundError:
         print("No json file currently exists, creating one now.")
-        json_file = open('./json.txt', 'w+')
-    # TODO Clean this mess up
-    json_file_contents = json_file.read()
-    json_file.close()
+        json_file_contents = ''
+    # After getting the contents of the file, we will overwrite it with new data
     new_json_file = open('./json.txt', 'w+')
     print("JSON file contents is: " + json_file_contents)
+    # If there is no current json file, write the new json to it
     if not json_file_contents:
         new_json = json.dumps(lines_with_context)
         new_json_file.write(new_json)
+    # If there is a current json file, we have to add the new JSON to the old before we overwrite it
     else:
         current_json = json.loads(json_file_contents)
         new_json = current_json
